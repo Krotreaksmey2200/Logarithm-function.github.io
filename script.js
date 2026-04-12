@@ -13,6 +13,9 @@ function updateSlide() {
     
     // ប្ដូរលេខរៀងសូចនាករ (ឧទាហរណ៍ 1 / 4)
     indicator.innerText = (currentSlideIndex + 1) + " / " + slides.length;
+
+    // Scroll to top of the slide when changing
+    slides[currentSlideIndex].scrollTop = 0;
 }
 
 function moveSlide(step) {
@@ -33,12 +36,43 @@ function moveSlide(step) {
 
 // បន្ថែមការបញ្ជាតាមរយៈក្តារចុច (Keyboard)
 document.addEventListener('keydown', function(event) {
-    if (event.key === "ArrowRight") {
-        moveSlide(1); // ចុចព្រួញស្ដាំ ទៅមុខ
+    if (event.key === "ArrowRight" || event.key === " ") {
+        moveSlide(1); // ចុចព្រួញស្ដាំ ឬ Space ទៅមុខ
     } else if (event.key === "ArrowLeft") {
         moveSlide(-1); // ចុចព្រួញឆ្វេង ថយក្រោយ
     }
 });
+
+// Touch Swipe Support
+let touchstartX = 0;
+let touchendX = 0;
+let touchstartY = 0;
+let touchendY = 0;
+
+function handleGesture() {
+    const dx = touchendX - touchstartX;
+    const dy = touchendY - touchstartY;
+    
+    // Only trigger if horizontal swipe is more significant than vertical
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+        if (dx < 0) {
+            moveSlide(1); // Swipe Left -> Next
+        } else {
+            moveSlide(-1); // Swipe Right -> Prev
+        }
+    }
+}
+
+document.addEventListener('touchstart', e => {
+    touchstartX = e.changedTouches[0].screenX;
+    touchstartY = e.changedTouches[0].screenY;
+}, false);
+
+document.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX;
+    touchendY = e.changedTouches[0].screenY;
+    handleGesture();
+}, false);
 
 // ហៅឱ្យដំណើរការដំបូងពេលបើកហ្វាយ
 updateSlide();
