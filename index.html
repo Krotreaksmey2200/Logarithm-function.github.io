@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khmer Math OCR Presentation</title>
+    <!-- ភ្ជាប់ទៅកាន់ហ្វាយ CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ភ្ជាប់ពុម្ពអក្សរខ្មែរ -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <!-- MathJax for Math Rendering -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div class="presentation-container">
+        
+        <!-- ស្លាយទី ១: Title -->
+        <div class="slide title-slide active">
+            <h2 class="uni-name">Institute of Technology of Cambodia</h2>
+            <p class="school-name">Graduate School of ITC</p>
+            <h1 class="main-topic">Automated Recognition and LaTeX Conversion of Mathematical Expressions from Khmer Documents</h1>
+            <div class="school-logo">
+                 <img src="images/logo.png" alt="GS Logo" class="school-logo">
+            </div>
+            <div class="info-box">
+                <p>Lecturer: <strong>Dr. HAS Sothea</strong> & <strong>Dr. Sokkhey Phauk</strong></p>
+                <p>Presenter: <strong>KROT Reaksmey (M080415)</strong></p>
+            </div>
+        </div>
+
+        <!-- ស្លាយទី ២: លំហាត់អនុគមន៍លោការីត -->
+        <div class="slide">
+            <div class="header-bar">០២ លំហាត់អនុគមន៍លោការីត</div>
+            <div class="content">
+                <div class="subtitle">វិញ្ញាសាត្រៀមប្រឡងបាក់ឌុប</div>
+                
+                <p style="font-size: 22px; margin-bottom: 20px; color: #2c2c2c;">
+                    I. អនុគមន៍ $f$ កំណត់ចំពោះ $x > 0$ ដោយ $y = f(x) = 2 + \frac{\ln x}{x^2}$ ហើយមានក្រាប $(C)$ ។
+                </p>
+
+                <div class="list-item">
+                    <div class="number-circle">ក</div>
+                    <div class="item-text">
+                        រកលីមីតនៃ $x$ ខិតជិត $+\infty$ និង $x$ ខិតជិត $0$ ខាងស្តាំ។ រួចរកសមីការអាស៊ីមតូតឈរនិងអាស៊ីមតូតដេកនៃក្រាប $(C)$ ។
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="number-circle">ខ</div>
+                    <div class="item-text">
+                        គណនាដេរីវេទី ១ នៃ $f$ ហើយសង់តារាងអថេរភាពនៃអនុគមន៍ $f$ ។
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="number-circle">គ</div>
+                    <div class="item-text">
+                        រកកូអរដោនេនៃចំណុចប្រសព្វរវាងក្រាប $(C)$ និងអាស៊ីមតូតដេក។ សង់ក្រាប $(C)$ នៅក្នុងតម្រុយអរតូណរមេ។ គេឱ្យ $e = 0.72, e^{0.5} = 1.65$ ។
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="number-circle">ឃ</div>
+                    <div class="item-text">
+                        គណនាផ្ទៃក្រឡាផ្នែកប្លង់កំណត់ដោយក្រាប $(C)$ អាស៊ីមតូតដេក បន្ទាត់ឈរ $x = 1$ និង $x = 1.65$ ។
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ស្លាយទី ៣: Methodology -->
+        <div class="slide">
+            <div class="header-bar">02 METHODOLOGY</div>
+            <div class="content">
+                <div class="subtitle">System Workflow</div>
+                <div class="workflow-list">
+                    <p>👉 ១. ប្រមូលទិន្នន័យ (Data Collection)</p>
+                    <p>👉 ២. ការកែច្នៃរូបភាព (Preprocessing)</p>
+                    <p>👉 ៣. ការបែងចែកតំបន់អត្ថបទ និងរូបមន្ត (Layout Analysis)</p>
+                    <p>👉 ៤. ការបម្លែងទៅជា LaTeX (Recognition & Conversion)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ស្លាយទី ៤: Conclusion -->
+        <div class="slide">
+            <div class="header-bar">03 CONCLUSION</div>
+            <div class="content">
+                <div class="subtitle">Expected Outcomes</div>
+                <div class="list-item">
+                    <div class="number-circle">✓</div>
+                    <div class="item-text">High-accuracy recognition system for Khmer STEM documents.</div>
+                </div>
+                <div class="list-item">
+                    <div class="number-circle">✓</div>
+                    <div class="item-text">Automated LaTeX generation from scanned images.</div>
+                </div>
+                <div class="list-item">
+                    <div class="number-circle">✓</div>
+                    <div class="item-text">Support digital learning and improve research workflow in Cambodia.</div>
+                </div>
+                
+                <h1 class="thank-you">THANK YOU!</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ប៊ូតុងបញ្ជា -->
+    <div class="nav-controls">
+        <span id="slide-indicator">1 / 4</span>
+        <button class="nav-btn" onclick="moveSlide(-1)">❮ Previous</button>
+        <button class="nav-btn" onclick="moveSlide(1)">Next ❯</button>
+    </div>
+
+    <!-- ភ្ជាប់ទៅកាន់ហ្វាយ JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
